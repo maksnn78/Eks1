@@ -1,0 +1,16 @@
+name: Analyze test.txt
+
+on:
+  push:
+    paths:
+      - 'test.txt'
+  workflow_dispatch:
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo "Words:      $(wc -w < test.txt)"
+          echo "Characters: $(wc -m < test.txt)"
